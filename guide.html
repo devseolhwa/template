@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
     <!-- swiper slide -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/swiper.min.css">
 
     <!-- datepicker -->
     <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
@@ -37,7 +37,7 @@
 	<script src="assets/js/lib/plugins/syntaxhighlighter/shBrushJScript.js"></script>
 
     <!-- swiper slide -->
-    <script src="../assets/js/lib/swiper.min.js"></script>
+    <script src="assets/js/lib/swiper.min.js"></script>
 
     <!-- 페이지별 스크립트 -->
     <script src="assets/js/ui.js"></script>
@@ -61,6 +61,7 @@
                 <li><a href="#guideFile">첨부파일</a></li>
                 <li><a href="#guideTnbSlide">탭메뉴 (모바일 슬라이드형)</a></li>
                 <li><a href="#guideTabmenu">탭메뉴 (모바일 셀렉트형)</a></li>
+                <li><a href="#guideTabContent">탭메뉴 (컨텐츠 연결형)</a></li>
                 <li><a href="#guideModalPopup">모달팝업</a></li>
                 <li><a href="#guideCalendar">캘린더</a></li>
             </ul>
@@ -229,12 +230,12 @@
             </div>
             <!-- tnbSlide END -->
             <pre class="brush:html" title="HTML">
-                <!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 START -->
-                <!-- swiper slide css -->
-                <link rel="stylesheet" type="text/css" href="../assets/css/swiper.min.css">
-                <!-- swiper slide js -->
-                <script src="../assets/js/lib/swiper.min.js"></script>
-                <!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 END -->
+                &lt;!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 START --&gt;
+                &lt;!-- swiper slide css --&gt;
+                &lt;link rel="stylesheet" type="text/css" href="../assets/css/swiper.min.css"&gt;
+                &lt;!-- swiper slide js --&gt;
+                &lt;script src="../assets/js/lib/swiper.min.js"&gt;&lt;/script&gt;
+                &lt;!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 END --&gt;
 
                 &lt;div class="tnbSlide"&gt;
                     &lt;div class="swiper-container"&gt;
@@ -341,7 +342,7 @@
             <div class="tabmenu">
                 <button type="button" class="btnTabToggle" title="하위메뉴열기">메뉴명</button>
                 <ul class="tabMenuList">
-                    <li><a href="#">전체</a></li>
+                    <li class="on"><a href="#">전체</a></li>
                     <li><a href="#">회원관련</a></li>
                     <li><a href="#">주문관련</a></li>
                     <li><a href="#">배송관련</a></li>
@@ -354,7 +355,7 @@
                 &lt;div class="tabmenu"&gt;
                     &lt;button type="button" class="btnTabToggle" title="하위메뉴열기"&gt;메뉴명&lt;/button&gt;
                     &lt;ul class="tabMenuList"&gt;
-                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                        &lt;li class="on"&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
                         &lt;li&gt;&lt;a href="#"&gt;회원관련&lt;/a&gt;&lt;/li&gt;
                         &lt;li&gt;&lt;a href="#"&gt;주문관련&lt;/a&gt;&lt;/li&gt;
                         &lt;li&gt;&lt;a href="#"&gt;배송관련&lt;/a&gt;&lt;/li&gt;
@@ -425,6 +426,163 @@
                     .tabMenuList > li + li{margin-left: 0;border-top: 1px solid #E1E1E1;}
                     .tabMenuList > li > a{padding: 10px;border: 0;border-radius: 0;font-size: 13px;text-align: left;}
                     .tabMenuList > li.on > a{background: var(--main-color);color: #fff;}
+                }
+            </pre>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideTabContent">탭메뉴 (컨텐츠 연결형) <small>.tabNav .tabContent</small></h3>
+            <ul class="guideText">
+                <li>.tabNav a태그의 href 주소와 .tabContent의 아이디 값을 맞춰주세요.</li>
+                <li>모바일에서 드롭다운 형태인데 사용하고 싶지 않다면, <span class="guidePoint">@media screen and (max-width: 767px)</span> 영역 css 는 빼주시면 됩니다. </li>
+            </ul>
+            <ul class="tabNav">
+                <li class="on"><a href="#tabContent1">menu1</a></li>
+                <li><a href="#tabContent2">menu2</a></li>
+                <li><a href="#tabContent3">menu3</a></li>
+                <li><a href="#tabContent4">menu4</a></li>
+                <li><a href="#tabContent5">menu5</a></li>
+            </ul>
+            <div class="tabContent" id="tabContent1">
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+                content1<br>
+            </div>
+            <div class="tabContent" id="tabContent2">
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+                content2<br>
+            </div>
+            <div class="tabContent" id="tabContent3">
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+                content3<br>
+            </div>
+            <div class="tabContent" id="tabContent4">
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+                content4<br>
+            </div>
+            <div class="tabContent" id="tabContent5">
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+                content5<br>
+            </div>
+
+            <pre class="brush:html" title="HTML">
+                &lt;ul class="tabNav"&gt;
+                    &lt;li class="on"&gt;&lt;a href="#tabContent1"&gt;menu1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#tabContent2"&gt;menu2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#tabContent3"&gt;menu3&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#tabContent4"&gt;menu4&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#tabContent5"&gt;menu5&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div class="tabContent" id="tabContent1"&gt;
+                    content1 내용이 나옵니다.
+                &lt;/div&gt;
+                &lt;div class="tabContent" id="tabContent2"&gt;
+                    content2 내용이 나옵니다.
+                &lt;/div&gt;
+                &lt;div class="tabContent" id="tabContent3"&gt;
+                    content3 내용이 나옵니다.
+                &lt;/div&gt;
+                &lt;div class="tabContent" id="tabContent4"&gt;
+                    content4 내용이 나옵니다.
+                &lt;/div&gt;
+                &lt;div class="tabContent" id="tabContent5"&gt;
+                    content5 내용이 나옵니다.
+                &lt;/div&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                /* 탭메뉴 (컨텐츠 연결형) START */
+                $(function () {
+                    $(".tabNav .on a").each(function () {
+                        var tg = $(this).attr("href");
+                        if (tg !== "#" && tg !== "#;" && tg.charAt(0) === "#") {
+                            $(tg + ".tabContent").css("display", "block");
+                        }
+                    });
+                    $(".tabNav a").on("click", function (e) {
+                        var tg = $(this).attr("href");
+                        $(this).parent("li").addClass("on").siblings("li").removeClass("on");
+                        if (tg === "#" || tg === "" || tg === "#;") {
+                            e.preventDefault();
+                        } else if (tg.charAt(0) === "#") {
+                            if ($(tg).hasClass("tabContent")) {
+                                $(tg).show().siblings(".tabContent").hide();
+                                e.preventDefault();
+                            }
+                        }
+
+                        // 모바일 드롭다운
+                        var $currentTab = $(this).closest(".tabNav");
+                        if ($(window).width() < 768) {
+                            $(".tabNav").not($currentTab).removeClass("opened");
+                            $currentTab.toggleClass("opened");
+                            if ($(this).parent("li").hasClass("on")) {
+                                e.preventDefault();
+                            }
+                        }
+                    });
+                });
+                /* 탭메뉴 (컨텐츠 연결형) END */
+            </pre>
+            <pre class="brush:css" title="assets/css/sh_style.css">
+                /* 탭메뉴 (컨텐츠 연결형) START */
+                .tabNav{display: flex;align-items: center;justify-content: center;flex-direction: row;flex-wrap: wrap;margin-top: 60px;margin-bottom: 30px;z-index: 9;}
+                .tabNav > li{margin-bottom: 10px;}
+                .tabNav > li + li{margin-left: 10px;}
+                .tabNav > li > a{display: block;padding: 8px 22px;background: #FFF;border: 1px solid #E1E1E1;border-radius: 5px;box-sizing: border-box;font-size: 15px;color: #222;font-weight: 400;letter-spacing: -0.6px;text-align: center;-webkit-transition: .3s;transition: .3s;}
+                .tabNav > li.on > a{border-color: var(--main-color);color: var(--main-color);}
+                .tabContent{display: none;}
+                /* 탭메뉴 (컨텐츠 연결형) END */
+
+                @media screen and (max-width: 767px){
+                    /* 탭메뉴 (컨텐츠 연결형) START */
+                    .tabNav{position: relative;height: 40px;padding-top: 40px;margin: 30px 0 0 0;}
+                    .tabNav > li{display: none;width: 100%;margin: -1px 0 0 0;background-color: #fff;border: 1px solid #E1E1E1;}
+                    .tabNav > li + li{margin-left: 0;}
+                    .tabNav > li > a{padding: 10px;background: transparent;border: 0;border-radius: 0;font-size: 13px;text-align: left;}
+                    .tabNav > li.on{display: block;position: absolute;top: 0;background-color: #fff;background-image: url(../images/icon_tnb_off.svg);background-size: 14px;background-position: calc(100% - 10px) center;background-repeat: no-repeat;border-radius: 5px;}
+                    .tabNav > li.on > a{color: #222;}
+                    .tabNav.opened > li{display: block;}
+                    .tabNav.opened > li.on{background-image: url(../images/icon_tnb_on.svg);border-color: var(--main-color);}
+                    .tabNav.opened > li.on a{color: var(--main-color);}
+                    /* 탭메뉴 (컨텐츠 연결형) END */
                 }
             </pre>
         </section>

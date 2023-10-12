@@ -155,3 +155,36 @@ $(document).on("click", ".calenderTableSm a", function(){
     $(this).parent("td").toggleClass("on").siblings("td").removeClass("on");
 });
 /* calenderTable END */
+
+/* 탭메뉴 (컨텐츠 연결형) START */
+$(function () {
+    $(".tabNav .on a").each(function () {
+        var tg = $(this).attr("href");
+        if (tg !== "#" && tg !== "#;" && tg.charAt(0) === "#") {
+            $(tg + ".tabContent").css("display", "block");
+        }
+    });
+    $(".tabNav a").on("click", function (e) {
+        var tg = $(this).attr("href");
+        $(this).parent("li").addClass("on").siblings("li").removeClass("on");
+        if (tg === "#" || tg === "" || tg === "#;") {
+            e.preventDefault();
+        } else if (tg.charAt(0) === "#") {
+            if ($(tg).hasClass("tabContent")) {
+                $(tg).show().siblings(".tabContent").hide();
+                e.preventDefault();
+            }
+        }
+
+		// 모바일 드롭다운
+		var $currentTab = $(this).closest(".tabNav");
+		if ($(window).width() < 768) {
+			$(".tabNav").not($currentTab).removeClass("opened");
+			$currentTab.toggleClass("opened");
+			if ($(this).parent("li").hasClass("on")) {
+				e.preventDefault();
+			}
+		}
+	});
+});
+/* 탭메뉴 (컨텐츠 연결형) END */
