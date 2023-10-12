@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공통 템플릿 </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <style>
+    *{font-family: 'Noto Sans KR', sans-serif;}
+    .codinglist{max-width: 1400px;margin: 0 auto;padding: 50px 20px 100px;box-sizing: border-box;}
+    .codinglist .title {display: inline-block;margin: 20px 0;padding: 18px 26px;border: 1px solid #888;background: #fff;font-size: 20px;text-align: left;font-weight: 600;}
+    .codinglist .title strong {display: block;font-size: 18px;color: #000;font-weight: 400;}
+    .codinglist .title small {display: block;margin-top: 10px;font-size: 12px;color: #000;font-weight: 400;}
+    .codinglist .title a{display: inline-block;padding: 2px 10px 4px;margin-top: 10px;background-color: #fff;border: 1px solid #1f76eb;border-radius: 3px;box-sizing: border-box;font-size: 12px;color: #1f76eb;font-weight: 600;}
+    .codinglist table{width: 100%;margin-top: 20px;border-collapse: collapse;background-color: #fff;box-shadow: 0px 15px 20px 2px rgba(0, 0, 0, 0.1);color: #000;}
+    .codinglist table thead th{padding: 15px 15px;background-color:#1f76eb;font-size: 14px;color:#fff;font-weight: 600;text-align: center;}
+    .codinglist table tbody th{padding: 10px 15px;background-color:#fff;border: 1px solid #ddd;font-size: 14px;font-weight: 400;vertical-align: middle;}
+    .codinglist table td {padding: 10px 20px;background-color:#fff;border: 1px solid #ddd;font-size: 14px;font-weight: 400;vertical-align: middle;line-height: 1.5;}
+    .codinglist table td a{border-bottom: 1px solid #000;color: #000;}
+    .codinglist table td a:hover{border-color: #1f76eb;color: #1f76eb;}
+    </style>
+
+</head>
+<body>
+
+    <div class="codinglist">
+        <p class="title">
+            <strong>공통 템플릿 LIST</strong>
+            <small>last update : 2023-10-10</small>
+            <a href="guide.html" target="_blank" title="새창열림">마크업가이드</a>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ver</th>
+                    <th scope="col">구분</th>
+                    <th scope="col">유형</th>
+                    <th scope="col">세부유형</th>
+                    <th scope="col">파일명</th>
+                    <th scope="col">Memo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="ver" rowspan="10">1</th>
+                    <th class="depth" rowspan="9">게시판</th>
+                    <th class="info" rowspan="5">목록</th>
+                    <td class="info">table형</td>
+                    <td class="file"><a href="page/list_table.html" target="_blank">list_table.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <td class="info">block형</td>
+                    <td class="file"><a href="page/list_block.html" target="_blank">list_block.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <td class="info">gallery 세로형</td>
+                    <td class="file"><a href="page/gallery_세로.html" target="_blank">gallery_세로.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <td class="info">gallery 가로형</td>
+                    <td class="file"><a href="page/gallery_가로.html" target="_blank">gallery_가로.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <td class="info">게시글 없음</td>
+                    <td class="file"><a href="page/list_none.html" target="_blank">list_none.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <th class="info" rowspan="2">상세</th>
+                    <td class="info">view 기본형</td>
+                    <td class="file"><a href="page/view_basic.html" target="_blank">view_basic.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <td class="info">view 팝업형</td>
+                    <td class="file"><a href="page/view_popup.html" target="_blank">view_popup.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <th class="info">작성</th>
+                    <td class="info">write 기본형</td>
+                    <td class="file"><a href="page/write_basic.html" target="_blank">write_basic.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <th class="info">FAQ</th>
+                    <td class="info">FAQ 기본형</td>
+                    <td class="file"><a href="page/FAQ_basic.html" target="_blank">FAQ_basic.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+                <tr>
+                    <th class="depth">POPUP</th>
+                    <th class="info">modal popup</th>
+                    <td class="info"></td>
+                    <td class="file"><a href="page/modal_popup.html" target="_blank">modal_popup.html</a></td>
+                    <td class="memo"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

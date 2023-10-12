@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 상세 view 기본형</title>
+
+    <!-- 기본세팅 css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+
+    <!-- 페이지별 style css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/sh_style.css">
+
+</head>
+<body>
+
+    <div class="inner">
+
+        <!-- 게시판 상세 view 기본형 START -->
+        <div class="boardView">
+            <div class="viewTitle">
+                <p class="info">
+                    <span>2023.11.13</span>
+                    <span>운영자</span>
+                </p>
+                <p class="title">이곳은 제목이 들어가는 영역입니다.</p>
+            </div>
+            <div class="viewDetail">
+                <p><img src="http://via.placeholder.com/400x300" alt=""></p>
+                <p>이곳은 내용이 들어가는 웹에디터 영역입니다.</p>
+            </div>
+        </div>
+        <div class="btnGroup">
+            <button type="button" class="btnModify">수정</button>
+            <button type="button" class="btnDelete">삭제</button>
+            <button type="button" class="btnList">목록</button>
+        </div>
+        <ul class="viewNav">
+            <li>
+                <p class="prev">이전 글</p>
+                <a href="#" title="이전글 보기">이전글 제목이 노출됩니다.</a>
+            </li>
+            <li>
+                <p class="next">다음 글</p>
+                <!-- [전달사항] 다음글 없을때 -->
+                <p class="none">다음글이 없습니다.</p>
+                <!-- <a href="#" title="다음글 보기">다음글 제목이 노출됩니다.</a> -->
+            </li>
+        </ul>
+        <!-- 게시판 상세 view 기본형 END -->
+
+    </div><!-- inner end -->
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 작성 write 기본형</title>
+
+    <!-- 기본세팅 css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+
+    <!-- datepicker -->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/datepicker.css">
+
+    <!-- 페이지별 style css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/sh_style.css">
+
+    <!-- 기본 JavaScript -->
+    <script src="../assets/js/lib/jquery-1.12.4.min.js"></script>
+
+    <!-- datepicker -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- 페이지별 스크립트 -->
+    <script src="../assets/js/ui.js"></script>
+
+</head>
+<body>
+
+    <div class="inner">
+
+        <!-- 게시판 작성 write 기본형 START -->
+        <p class="writeInfo"><span>*</span>표시된 항목은 필수 입력 항목입니다.</p>
+        <div class="writeForm">
+            <table>
+                <caption>입력폼 목록(이름, 연락처, 이메일, 비밀번호, 방문일시, 제목, 문의내용, 파일첨부, 알림선택, 비밀글)</caption>
+                <colgroup>
+                    <col style="width: 145px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>이름<span class="mainColor">*</span></th>
+                        <td><input type="text" title="이름 입력" placeholder="이름을 입력해주세요." class="widthHalf mWidthFull"></td>
+                    </tr>
+                    <tr>
+                        <th>연락처<span class="mainColor">*</span></th>
+                        <td>
+                            <ul class="telGroup">
+                                <li>
+                                    <select title="연락처 첫번째자리 선택" id="telNumber1" class="widthFull">
+                                        <option value="">선택</option>
+                                        <option value="">010</option>
+                                        <option value="">011</option>
+                                        <option value="">016</option>
+                                        <option value="">017</option>
+                                        <option value="">018</option>
+                                        <option value="">019</option>
+                                    </select>
+                                </li>
+                                <li class="bar">-</li>
+                                <li>
+                                    <input type="text" title="연락처 두번째자리 입력" id="telNumber2" class="widthFull" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                </li>
+                                <li class="bar">-</li>
+                                <li>
+                                    <input type="text" title="연락처 세번째자리 입력" id="telNumber3" class="widthFull" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이메일<span class="mainColor">*</span></th>
+                        <td>
+                            <ul class="emailGroup">
+                                <li>
+                                    <input type="text" title="이메일 주소 입력" id="emailAddress" class="widthFull" placeholder="이메일주소">
+                                </li>
+                                <li class="mark">@</li>
+                                <li>
+                                    <select title="도메인 선택" id="emailDomain" class="widthFull">
+                                        <option value="">선택</option>
+                                        <option value="">직접입력</option>
+                                        <option value="">daum.net</option>
+                                        <option value="">gmail.com</option>
+                                        <option value="">hanmail.net</option>
+                                        <option value="">naver.com</option>
+                                        <option value="">nate.com</option>
+                                        <option value="">yahoo.com</option>
+                                        <option value="">outlook.com</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호<span class="mainColor">*</span></th>
+                        <td><input type="password" title="비밀번호 입력" placeholder="비밀번호를 입력해주세요." class="widthHalf mWidthFull"></td>
+                    </tr>
+                    <tr>
+                        <th>방문일시<span class="mainColor">*</span></th>
+                        <td>
+                            <ul class="dateGroup">
+                                <li >
+                                    <input type="text" class="datepicker widthLg" title="시작 날짜 선택" placeholder="날짜선택" />
+                                    <select title="시작 시 선택" id="firstHour" class="widthSm mWidthSm">
+                                        <option value="">시</option>
+                                        <option value="">10시</option>
+                                        <option value="">11시</option>
+                                        <option value="">12시</option>
+                                        <option value="">13시</option>
+                                        <option value="">14시</option>
+                                        <option value="">15시</option>
+                                        <option value="">16시</option>
+                                    </select>
+                                    <select title="시작 분 선택" id="firstMinute" class="widthSm mWidthSm">
+                                        <option value="">분</option>
+                                        <option value="">00분</option>
+                                        <option value="">10분</option>
+                                        <option value="">20분</option>
+                                        <option value="">30분</option>
+                                        <option value="">40분</option>
+                                        <option value="">50분</option>
+                                    </select>
+                                </li>
+                                <li class="mark">~</li>
+                                <li>
+                                    <input type="text" class="datepicker widthLg" title="종료 날짜 선택" placeholder="날짜선택" />
+                                    <select title="종료 시 선택" id="firstHour" class="widthSm mWidthSm">
+                                        <option value="">시</option>
+                                        <option value="">10시</option>
+                                        <option value="">11시</option>
+                                        <option value="">12시</option>
+                                        <option value="">13시</option>
+                                        <option value="">14시</option>
+                                        <option value="">15시</option>
+                                        <option value="">16시</option>
+                                    </select>
+                                    <select title="종료 분 선택" id="firstMinute" class="widthSm mWidthSm">
+                                        <option value="">분</option>
+                                        <option value="">00분</option>
+                                        <option value="">10분</option>
+                                        <option value="">20분</option>
+                                        <option value="">30분</option>
+                                        <option value="">40분</option>
+                                        <option value="">50분</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>제목<span class="mainColor">*</span></th>
+                        <td><input type="text" title="제목 입력" placeholder="제목을 입력해주세요." class="widthFull"></td>
+                    </tr>
+                    <tr>
+                        <th>문의내용<span class="mainColor">*</span></th>
+                        <td>
+                            <textarea title="문의내용 입력" placeholder="문의내용을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>파일첨부</th>
+                        <td>
+                            <ul class="fileGroup">
+                                <li>
+                                    <div class="fileBox">
+                                        <input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled">
+                                        <label>파일첨부<input type="file" onchange="uploadName(this)"></label>
+                                    </div>
+                                    <button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제">첨부파일 삭제</button>
+                                </li>
+                                <li>
+                                    <div class="fileBox">
+                                        <input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled">
+                                        <label>파일첨부<input type="file" onchange="uploadName(this)"></label>
+                                    </div>
+                                    <button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제">첨부파일 삭제</button>
+                                </li>
+                                <li>
+                                    <div class="fileBox">
+                                        <input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled">
+                                        <label>파일첨부<input type="file" onchange="uploadName(this)"></label>
+                                    </div>
+                                    <button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제">첨부파일 삭제</button>
+                                </li>
+                            </ul><!-- fileGroup END -->
+                            <p class="fileInfo">(첨부가능 파일 확장자 : gif, jpg, jpeg, bmp, png, hwp, doc, docx, xls, xlsx, pdf, ppt, pptx, zip, rar, txt, csv)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>알림선택<span class="mainColor">*</span></th>
+                        <td>
+                            <ul class="checkList checkListInline">
+                                <li>
+                                    <input type="checkbox" id="signalType01" checked>
+                                    <label for="signalType01">이메일</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="signalType02">
+                                    <label for="signalType02">연락처</label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>비밀글<span class="mainColor">*</span></th>
+                        <td>
+                            <ul class="checkList checkListInline">
+                                <li>
+                                    <input type="radio" name="viewMode" id="viewMode01">
+                                    <label for="viewMode01">일반글</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="viewMode" id="viewMode02" checked>
+                                    <label for="viewMode02">비밀글</label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>추가 폼</th>
+                        <td>
+                            <div class="inputGroup">
+                                <input type="text" class="inputArea" placeholder="입력해주세요.">
+                                <span class="inputAdd">
+                                    <button type="button">검색</button>
+                                </span>
+                            </div>
+                            <div class="inputGroup">
+                                <input type="text" class="inputArea" placeholder="입력해주세요.">
+                                <span class="inputAdd">
+                                    <button type="button">button 태그</button>
+                                </span>
+                                <span class="inputAdd">
+                                    <a href="#;" target="_blank" title="새창">a 태그</a>
+                                </span>
+                            </div>
+                            <div class="inputGroup">
+                                <select class="inputArea">
+                                    <option selected="">선택</option>
+                                    <option>항목1</option>
+                                    <option>항목2</option>
+                                </select>
+                                <span class="inputAdd">
+                                    <button type="button">확인</button>
+                                </span>
+                            </div>
+                            <hr>
+                            <ul class="checkList">
+                                <li>
+                                    <input type="checkbox" id="Privacy01" checked>
+                                    <label for="Privacy01">이용약관에 모두 동의하십니까?</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="Privacy02">
+                                    <label for="Privacy02">개인정보 수집·이용에 모두 동의하십니까?</label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td>
+                            <div class="addrresGroup">
+                                <div class="inputGroup">
+                                    <input type="text" class="inputArea" title="우편번호 입력"  placeholder="우편번호">
+                                    <span class="inputAdd">
+                                        <button type="button">주소찾기</button>
+                                    </span>
+                                </div>
+                                <div class="inputGroup">
+                                    <input type="text" title="상세주소 입력" placeholder="상세주소" class="widthFull">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- writeForm end -->
+        <div class="btnGroup">
+            <button type="button" class="btnDelete">취소하기</button>
+            <button type="button" class="btnWrite">작성하기</button>
+        </div>
+        <!-- 게시판 작성 write 기본형 END -->
+
+    </div><!-- inner end -->
+    <script>
+        $.datepicker.setDefaults({
+            closeText: "close",
+            prevText: "prev",
+            nextText: "next",
+            currentText: "today",
+            monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+            monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+            dayNames: ["일", "월", "화", "수", "목", "금", "토"],
+            dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+            dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+            weekHeader: "주",
+            dateFormat: "yy.mm.dd", // ex)yy년 mm월 dd일
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: true,
+            yearSuffix: "년"
+        })
+    
+        $(".datepicker").datepicker({
+            minDate: 0
+        })
+    </script>
+</body>
+</html>

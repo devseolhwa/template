@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 상세 view 팝업형</title>
+
+    <!-- 기본세팅 css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+
+    <!-- 페이지별 style css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/sh_style.css">
+
+    <!-- 기본 JavaScript -->
+    <script src="../assets/js/lib/jquery-1.12.4.min.js"></script>
+
+    <!-- 페이지별 스크립트 -->
+    <script src="../assets/js/ui.js"></script>
+
+</head>
+<body>
+
+    <div class="inner">
+
+        <!-- 게시판 상세 view 팝업형 예시 목록 START -->
+        <div class="listTotal"><p>전체 <span>192</span>개의 글이 있습니다</p></div>
+        <ul class="galleryType02">
+            <li>
+                <!-- [전달사항] a태그에 onclick을 추가 -->
+                <a href="#;" onclick="viewPopupOpen('#viewPopup');">
+                    <div class="thumb">
+                        <div class="img"><img src="http://via.placeholder.com/600x400" alt=""></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">이곳은 제목이 노출됩니다.</p>
+                        <p class="text">이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. 이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. 이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. 이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다.</p>
+                        <p class="date">2020.11.13</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#;" onclick="viewPopupOpen('#viewPopup');">
+                    <div class="thumb">
+                        <div class="img"><img src="http://via.placeholder.com/900x600" alt=""></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">이곳은 제목이 노출됩니다.</p>
+                        <p class="text">이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. </p>
+                        <p class="date">2020.11.13</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#;" onclick="viewPopupOpen('#viewPopup');">
+                    <div class="thumb">
+                        <div class="img"><img src="http://via.placeholder.com/400x300" alt=""></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">이곳은 제목이 노출됩니다.</p>
+                        <p class="text">이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다.</p>
+                        <p class="date">2020.11.13</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#;" onclick="viewPopupOpen('#viewPopup');">
+                    <div class="thumb">
+                        <div class="img"><img src="http://via.placeholder.com/300x300" alt=""></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">이곳은 제목이 노출됩니다.</p>
+                        <p class="text">이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. 이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. </p>
+                        <p class="date">2020.11.13</p>
+                    </div>
+                </a>
+            </li>
+        </ul><!-- galleryType02 END -->
+
+        <div class="btnGroup">
+            <button type="button" class="btnWrite">작성하기</button>
+        </div>
+
+        <div class="paging">
+            <a href="#pagePrev" id="pagePrev">이전</a>
+            <a href="#" title="13페이지">13</a>
+            <a href="#" title="14페이지">14</a>
+            <a href="#" title="15페이지">15</a>
+            <strong>16</strong>
+            <a href="#" title="17페이지">17</a>
+            <a href="#" title="18페이지">18</a>
+            <a href="#pageNext" id="pageNext">다음</a>
+        </div>
+
+        <div class="boardSearch">
+            <select name="" id="" title="검색 유형 선택">
+                <option value="">제목</option>
+                <option value="">내용</option>
+                <option value="">제목+내용</option>
+            </select>
+            <input type="text" title="검색어 입력">
+            <button type="button" class="btnSearch">검색</button>
+        </div>
+        <!-- 게시판 상세 view 팝업형 예시 목록 START -->
+
+    </div><!-- inner end -->
+
+    <!-- 상세팝업 영역 START -->
+    <!-- [전달사항] .viewPopupWrap 가로 사이즈 조정은 .xs/.sm/.md/.lg - 320px/500px/700px/1000px 구분 -->
+    <div class="viewPopupWrap sm" id="viewPopup">
+        <div class="viewPopupCenter">
+            <div class="viewPopupInner">
+                <div class="viewPopupContents">
+                    <div class="thumb">
+                        <div class="img"><img src="http://via.placeholder.com/500x400" alt=""></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">이곳은 제목이 노출됩니다.</p>
+                        <p class="text">이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. 이곳은 포토 및 내용 결합 형태 리스트 게시글 내용이 간략하게 노출되는 영역입니다. </p>
+                        <p class="date">2020.11.13</p>
+                    </div>
+                </div>
+                <button type="button" class="btnViewPopupClose" onclick="viewPopupClose('#viewPopup');">닫기</button>
+            </div><!-- viewPopupInner end -->
+        </div><!-- viewPopupCenter end -->
+    </div><!-- viewPopupWrap end -->
+    <!-- 상세팝업 영역 END -->
+
+</body>
+</html>

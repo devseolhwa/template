@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modal popup</title>
+
+    <!-- 기본세팅 css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+
+    <!-- 페이지별 style css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/sh_style.css">
+
+    <!-- 기본 JavaScript -->
+    <script src="../assets/js/lib/jquery-1.12.4.min.js"></script>
+
+    <!-- 페이지별 스크립트 -->
+    <script src="../assets/js/ui.js"></script>
+
+</head>
+<body>
+
+    <div class="inner">
+
+        <div class="btnGroup">
+            <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeXs');">xs size</button>
+            <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeSm');">sm size</button>
+            <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeMd');">md size</button>
+            <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeLg');">lg size</button>
+        </div>
+
+    </div><!-- inner end -->
+
+    <!-- 팝업 영역 START -->
+    <!-- [전달사항] .popupWrap 가로 사이즈 조정은 .xs/.sm/.md/.lg - 320px/500px/700px/1000px 구분 -->
+    <div class="popupWrap xs" id="popupSizeXs">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeXs');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap sm" id="popupSizeSm">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeSm');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap md" id="popupSizeMd">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeMd');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap lg" id="popupSizeLg">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeLg');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+    <!-- 팝업 영역 END -->
+
+</body>
+</html>

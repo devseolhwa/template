@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마크업 가이드</title>
+
+    <!-- 기본세팅 css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+    <!-- swiper slide -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/swiper.min.css">
+
+    <!-- datepicker -->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/datepicker.css">
+
+    <!-- source highlighter : 작업시 추가 X -->
+	<link rel="stylesheet" href="assets/js/lib/plugins/syntaxhighlighter/shCoreDefault.css">
+
+    <!-- 가이드 css : 작업시 추가 X -->
+    <link rel="stylesheet" type="text/css" href="assets/css/guide.css">
+
+    <!-- 페이지별 style css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/sh_style.css">
+
+    <!-- 기본 JavaScript -->
+    <script src="assets/js/lib/jquery-1.12.4.min.js"></script>
+
+    <!-- datepicker -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- SyntaxHighlighter : 작업시 추가 X -->
+	<script src="assets/js/lib/plugins/syntaxhighlighter/shCore.js"></script>
+	<script src="assets/js/lib/plugins/syntaxhighlighter/shBrushXml.js"></script>
+	<script src="assets/js/lib/plugins/syntaxhighlighter/shBrushCss.js"></script>
+	<script src="assets/js/lib/plugins/syntaxhighlighter/shBrushJScript.js"></script>
+
+    <!-- swiper slide -->
+    <script src="../assets/js/lib/swiper.min.js"></script>
+
+    <!-- 페이지별 스크립트 -->
+    <script src="assets/js/ui.js"></script>
+
+    <script>
+        // SyntaxHighlighter : 작업시 추가 X
+        $(window).ready(function () {
+            SyntaxHighlighter.defaults['toolbar'] = false;
+            SyntaxHighlighter.all();
+        });
+    </script>
+</head>
+<body>
+
+    <div class="guideNav">
+        <h1>Guide Nav</h1>
+        <nav class="guideList">
+            <ul>
+                <li><a href="#guideBasic">기본설명</a></li>
+                <li><a href="#guideDatepicker">데이트피커</a></li>
+                <li><a href="#guideFile">첨부파일</a></li>
+                <li><a href="#guideTnbSlide">탭메뉴 (모바일 슬라이드형)</a></li>
+                <li><a href="#guideTabmenu">탭메뉴 (모바일 셀렉트형)</a></li>
+                <li><a href="#guideModalPopup">모달팝업</a></li>
+                <li><a href="#guideCalendar">캘린더</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="inner">
+        <h2 class="guideHeader">마크업 가이드</h2>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideBasic">기본설명</h3>
+            <ul class="guideText">
+                <li>
+                    assets/css/<span class="guidePoint">reset.css</span> 와  assets/js/lib/<span class="guidePoint">jquery-1.12.4.min.js</span> 파일은 기본 세팅을 위한 파일이며, 신규 프로젝트 진행시에 필수 삽입
+                </li>
+                <li>메인 컬러 변경은 assets/css/sh_style.css 8줄의 :root {--main-color: <span class="guidePoint">#FF3333</span>;} 컬러만 변경해주면 전체적으로 변경됩니다.</li>
+                <li>페이지별 css는 해당 파일(assets/css/sh_style.css)에 묶여 있으며, 주석으로 시작과 끝을 표시해두었습니다.</li>
+                <li>페이지별 js는 해당 파일(assets/js/ui.js)에 묶여 있으며, 주석으로 시작과 끝을 표시해두었습니다.</li>
+            </ul>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideDatepicker">데이트피커 <small>.datepicker</small></h3>
+            <ul class="guideText">
+                <li>데이트피커 style은 datepicker.css 파일에 따로 빼두었습니다.</li>
+                <li>sh_style.css의 /* 게시판 작성 write 기본형 */ css를 같이 사용해주세요.</li>
+            </ul>
+            <input type="text" class="datepicker widthLg" title="" placeholder="" id="">
+            <pre class="brush:html" title="HTML">
+                &lt;!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 START --&gt;
+                &lt;!-- datepicker css  --&gt;
+                &lt;link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css"&gt;
+                &lt;link rel="stylesheet" type="text/css" href="assets/css/datepicker.css"&gt;
+                &lt;!-- datepicker js --&gt;
+                &lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"&gt;&lt;/script&gt;
+                &lt;!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 END --&gt;
+
+                &lt;input type="text" class="datepicker widthLg" title="" placeholder=""&gt;
+
+                &lt;!-- 최하단에 추가 Script  --&gt;
+                &lt;script&gt;
+                    $.datepicker.setDefaults({
+                        closeText: "close",
+                        prevText: "prev",
+                        nextText: "next",
+                        currentText: "today",
+                        monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                        monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                        dayNames: ["일", "월", "화", "수", "목", "금", "토"],
+                        dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+                        dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+                        weekHeader: "주",
+                        dateFormat: "yy.mm.dd", // ex)yy년 mm월 dd일
+                        firstDay: 0,
+                        isRTL: false,
+                        showMonthAfterYear: true,
+                        yearSuffix: "년"
+                    })
+                
+                    $(".datepicker").datepicker({
+                        minDate: 0
+                    })
+                &lt;/script&gt;
+            </pre>
+            <script>
+                $.datepicker.setDefaults({
+                    closeText: "close",
+                    prevText: "prev",
+                    nextText: "next",
+                    currentText: "today",
+                    monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                    monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                    dayNames: ["일", "월", "화", "수", "목", "금", "토"],
+                    dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+                    dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"],
+                    weekHeader: "주",
+                    dateFormat: "yy.mm.dd", // ex)yy년 mm월 dd일
+                    firstDay: 0,
+                    isRTL: false,
+                    showMonthAfterYear: true,
+                    yearSuffix: "년"
+                })
+            
+                $(".datepicker").datepicker({
+                    minDate: 0
+                })
+            </script>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideFile">첨부파일 <small>.fileGroup</small></h3>
+            <ul class="guideText">
+                <li>sh_style.css의 /* 게시판 작성 write 기본형 */ css를 같이 사용해주세요.</li>
+            </ul>
+            <ul class="fileGroup">
+                <li>
+                    <div class="fileBox">
+                        <input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled">
+                        <label>파일첨부<input type="file" onchange="uploadName(this)"></label>
+                    </div>
+                    <button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제">첨부파일 삭제</button>
+                </li>
+                <li>
+                    <div class="fileBox">
+                        <input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled">
+                        <label>파일첨부<input type="file" onchange="uploadName(this)"></label>
+                    </div>
+                    <button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제">첨부파일 삭제</button>
+                </li>
+            </ul>
+            <pre class="brush:html" title="HTML">
+                &lt;ul class="fileGroup"&gt;
+                    &lt;li&gt;
+                        &lt;div class="fileBox"&gt;
+                            &lt;input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled"&gt;
+                            &lt;label&gt;파일첨부&lt;input type="file" onchange="uploadName(this)"&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제"&gt;첨부파일 삭제&lt;/button&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;div class="fileBox"&gt;
+                            &lt;input class="fileName" placeholder="현재 선택된 파일이 없습니다.(최대 20MB까지 지원)" disabled="disabled"&gt;
+                            &lt;label&gt;파일첨부&lt;input type="file" onchange="uploadName(this)"&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;button class="btnFileDelete" onclick="delFile(this)" title="첨부파일 삭제"&gt;첨부파일 삭제&lt;/button&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                // 첨부파일
+                function delFile(e){
+                    var this_file_item = e.previousElementSibling; //console.log(fileBox);
+                    var file_name = e.previousElementSibling.children[0];
+
+                    this_file_item.classList.remove("open");
+                    file_name.value = "현재 선택된 파일이 없습니다.(최대 20MB까지 지원)";
+                }
+                function uploadName(e){
+                    var files = e.files;
+                    var filename = files[0].name;  //console.log(fileName);
+                    var item = e.parentNode.parentNode;
+
+                    // 추출한 파일명 삽입 
+                    var upload_name = e.parentNode.previousElementSibling;
+                    upload_name.value = filename;
+                    item.classList.add("open");
+                }
+            </pre>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideTnbSlide">탭메뉴 (모바일 슬라이드형) <small>.tnbSlide</small></h3>
+            <ul class="guideText">
+                <li>swiper slide가 사용 되었습니다.</li>
+            </ul>
+            <!-- tnbSlide START -->
+            <div class="tnbSlide">
+                <div class="swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide on"><a href="#">고객센터</a></li>
+                        <li class="swiper-slide"><a href="#">자주묻는 질문</a></li>
+                        <li class="swiper-slide"><a href="#">1:1문의</a></li>
+                        <li class="swiper-slide"><a href="#">공지사항</a></li>
+                        <li class="swiper-slide"><a href="#">이벤트1</a></li>
+                        <li class="swiper-slide"><a href="#">이벤트2</a></li>
+                        <li class="swiper-slide"><a href="#">이벤트3</a></li>
+                        <li class="swiper-slide"><a href="#">이벤트4</a></li>
+                        <li class="swiper-slide"><a href="#">이벤트5</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- tnbSlide END -->
+            <pre class="brush:html" title="HTML">
+                <!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 START -->
+                <!-- swiper slide css -->
+                <link rel="stylesheet" type="text/css" href="../assets/css/swiper.min.css">
+                <!-- swiper slide js -->
+                <script src="../assets/js/lib/swiper.min.js"></script>
+                <!-- 기본 세팅 파일 제외한 head 영역 추가 파일들 END -->
+
+                &lt;div class="tnbSlide"&gt;
+                    &lt;div class="swiper-container"&gt;
+                        &lt;ul class="swiper-wrapper"&gt;
+                            &lt;li class="swiper-slide on"&gt;&lt;a href="#"&gt;고객센터&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;자주묻는 질문&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;1:1문의&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;공지사항&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;이벤트1&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;이벤트2&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;이벤트3&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;이벤트4&lt;/a&gt;&lt;/li&gt;
+                            &lt;li class="swiper-slide"&gt;&lt;a href="#"&gt;이벤트5&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                // tnbSlide
+                $(window).on("load resize", function () {
+                    tnbSlideSet();
+                });
+                function tnbSlideSet() {
+                    let screenWidth = $(window).width();
+                    let tnbSlideCheck = $(".tnbSlide");
+
+                    if (tnbSlideCheck.length) {
+                        var tnbSlide = new Swiper(".tnbSlide .swiper-container", {
+                            loop: false,
+                            slidesPerView: "auto", // 보여줄 개수
+                            observer : true,
+                            observeParents : true,
+                            allowTouchMove: true,
+                            navigation: false,
+                            pagination: false,
+                            breakpoints: {
+                                767: {
+                                    // 브라우저가 767보다 클 때
+                                    allowTouchMove: false,
+                                },
+                            },
+                        });
+                    }
+                    $(".tnbSlide li a").on("click", function(){
+                        $(this).parent("li").addClass("on").siblings("li").removeClass("on");
+                        return false;
+                    });
+                    if (screenWidth < 768) {
+                        //mobile
+                        $(".tnbSlide li a").on("click", function(){
+                            tnbSlideTo();
+                            return false;
+                        });
+                        
+                        function tnbSlideTo(){
+                            $(".tnbSlide").find("li").each(function(i) {
+                                if($(this).hasClass("on")){
+                                    //console.log(i);
+                                    tnbSlide.slideTo(i);
+                                }
+                            });
+                            if($(".tnbSlide li:first-child").hasClass("on")){ 
+                                $(".tnbSlide").addClass("first");
+                                $(".tnbSlide").removeClass("ing last");
+                            } else if($(".tnbSlide li:last-child").hasClass("on")){ 
+                                $(".tnbSlide").addClass("last");
+                                $(".tnbSlide").removeClass("ing first");
+                            } else{
+                                $(".tnbSlide").addClass("ing");
+                            }
+                        }
+                        tnbSlideTo();
+                    }
+                }
+            </pre>
+            <pre class="brush:css" title="assets/css/sh_style.css">
+                .tnbSlide{position: relative;border-bottom: 1px solid #ddd;box-sizing: border-box;overflow: hidden;}
+                .tnbSlide:before{position: absolute;left: -20px;top: 0;content: "";display: none;width: 20px;height: 52px;-webkit-box-shadow: 5px 0 15px 10px rgba(255, 255, 255, 0.8);box-shadow: 5px 0 15px 10px rgba(255, 255, 255, 0.8);z-index: 9;}
+                .tnbSlide:after{position: absolute;right: -20px;top: 0;content: "";display: none;width: 20px;height: 52px;-webkit-box-shadow: -5px 0 15px 10px rgba(255, 255, 255, 0.8);box-shadow: -5px 0 15px 10px rgba(255, 255, 255, 0.8);z-index: 9;}
+                .tnbSlide .swiper-container{position: relative;max-width: 900px;margin: 0 auto;}
+                .tnbSlide .swiper-wrapper{height: 62px;display: flex;justify-content: center;}
+                .tnbSlide li{position: relative;flex: auto;width: auto;}
+                .tnbSlide li:after{content: "";opacity: 0;visibility: hidden;position: absolute;left: 0;bottom: 0;display: block;width: 100%;height: 2px;background: var(--main-color);-webkit-transition: .3s;transition: .3s;}
+                .tnbSlide li a{display: flex;align-items: center;justify-content: center;width: 100%;height: 100%;font-size: 17px;color: #222;font-weight: 400;letter-spacing: -0.6px;word-break: keep-all;text-align: center;-webkit-transition: .3s;transition: .3s;}
+                .tnbSlide li.on:after{opacity: 1;visibility: visible;}
+                .tnbSlide li.on a{color: var(--main-color);font-weight: 700;}
+
+                @media screen and (max-width: 767px){
+                    .tnbSlide:before, .tnbSlide:after{display: block;}
+                    .tnbSlide.first:before{display: none;}
+                    .tnbSlide.last:after{display: none;}
+                    .tnbSlide.ing:before, .tnbSlide.ing:after{display: block;}
+                    .tnbSlide .swiper-wrapper{height: 52px;justify-content: flex-start;}
+                    .tnbSlide li{flex: none;width: auto;padding: 0 20px;}
+                    .tnbSlide li a{font-size: 14px;}
+                }
+            </pre>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideTabmenu">탭메뉴 (모바일 셀렉트형) <small>.tabmenu</small></h3>
+            <ul class="guideText">
+                <li>.btnTabToggle의 메뉴명은 스크립트로 제어됩니다.</li>
+            </ul>
+            <div class="tabmenu">
+                <button type="button" class="btnTabToggle" title="하위메뉴열기">메뉴명</button>
+                <ul class="tabMenuList">
+                    <li><a href="#">전체</a></li>
+                    <li><a href="#">회원관련</a></li>
+                    <li><a href="#">주문관련</a></li>
+                    <li><a href="#">배송관련</a></li>
+                    <li><a href="#">취소/교환/반품관련</a></li>
+                    <li><a href="#">혜택관련</a></li>
+                    <li><a href="#">기타</a></li>
+                </ul>
+            </div>
+            <pre class="brush:html" title="HTML">
+                &lt;div class="tabmenu"&gt;
+                    &lt;button type="button" class="btnTabToggle" title="하위메뉴열기"&gt;메뉴명&lt;/button&gt;
+                    &lt;ul class="tabMenuList"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;전체&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;회원관련&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;주문관련&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;배송관련&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;취소/교환/반품관련&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;혜택관련&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;기타&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                // tabmenu
+                $(window).on("load resize", function () {
+                    tabmenu();
+                });
+                function tabmenu(){
+                    let screenWidth = $(window).width();
+                    let btnTabToggle = $(".btnTabToggle");
+                    let btnTabText = $(".tabMenuList").find(".on").children("a").text();
+                    
+                    btnTabToggle.text(btnTabText);
+
+                    $(".tabMenuList li a").on("click", function(){
+                        $(this).parent("li").addClass("on").siblings("li").removeClass("on");
+                        if (screenWidth >= 768) {
+                            //pc
+                            $(".tabMenuList").css({"display":"flex"});
+                            return false;
+                        } else if (screenWidth < 768) {
+                            //mobile
+                            let click_txt = $(this).text();
+
+                            btnTabToggle.attr("title", "하위메뉴열기");
+                            btnTabToggle.parent(".tabmenu").removeClass("open");
+                            btnTabToggle.text(click_txt);
+                            $(".tabMenuList").css({"display":"none"});
+                            return false;
+                        }
+                    });
+                    if (screenWidth >= 768) {
+                        //pc
+                        $(".tabMenuList").css({"display":"flex"});
+                    } else if (screenWidth < 768) {
+                        //mobile
+                        $(".tabMenuList").css({"display":"none"});
+                    }
+                }
+                $(document).on("click", ".btnTabToggle", function(){
+                    $(this).parent(".tabmenu").hasClass("open") ? $(this).attr("title", "하위메뉴열기") : $(this).attr("title", "하위메뉴닫기");
+                    $(this).parent(".tabmenu").toggleClass("open").children(".tabMenuList").slideToggle();
+                    return false;
+                });
+            </pre>
+            <pre class="brush:css" title="assets/css/sh_style.css">
+                .tabmenu{position: relative;margin-top: 60px;margin-bottom: 30px;}
+                .tabmenu .btnTabToggle{display: none;position: relative;width: 100%;min-height: 40px;padding: 10px 25px 10px 10px;border: 1px solid #E1E1E1;border-radius: 5px;background-color: #fff;background-image: url(../images/icon_tnb_off.svg);background-size: 14px;background-position: calc(100% - 10px) center;background-repeat: no-repeat;box-sizing: border-box;font-size: 13px;color: #555;font-weight: 400;text-align: left;-webkit-transition: .3s;transition: .3s;}
+                .tabMenuList{display: flex;align-items: center;justify-content: center;flex-direction: row;flex-wrap: wrap;}
+                .tabMenuList > li{margin-bottom: 10px;}
+                .tabMenuList > li + li{margin-left: 10px;}
+                .tabMenuList > li > a{display: block;padding: 8px 22px;background: #FFF;border: 1px solid #E1E1E1;border-radius: 5px;box-sizing: border-box;font-size: 15px;color: #222;font-weight: 400;letter-spacing: -0.6px;text-align: center;-webkit-transition: .3s;transition: .3s;}
+                .tabMenuList > li.on > a{border-color: var(--main-color);color: var(--main-color);}
+
+                @media screen and (max-width: 767px){
+                    .tabmenu{margin-top: 30px;margin-bottom: 30px;}
+                    .tabmenu .btnTabToggle{display: block;}
+                    .tabmenu.open .btnTabToggle{background-image: url(../images/icon_tnb_on.svg);border-color: var(--main-color);color: var(--main-color);}
+                    .tabMenuList{display: none;position: absolute;top: 45px;left: 0;width: 100%;max-height: 220px;background: #fff;border: 1px solid #E1E1E1;border-radius: 5px;box-sizing: border-box;overflow-x: hidden;overflow-y: auto;z-index: 9;}
+                    .tabMenuList > li{min-height: inherit;margin: 0px;}
+                    .tabMenuList > li + li{margin-left: 0;border-top: 1px solid #E1E1E1;}
+                    .tabMenuList > li > a{padding: 10px;border: 0;border-radius: 0;font-size: 13px;text-align: left;}
+                    .tabMenuList > li.on > a{background: var(--main-color);color: #fff;}
+                }
+            </pre>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideModalPopup">
+                모달 팝업 <small>.popupWrap</small>
+            </h3>
+            <ul class="guideText">
+                <li>모달팝업 사이즈 조절은 .popupWrap 의 .xs/.sm/.md/.lg 로 조정</li>
+                <li>팝업이 열릴 버튼에 추가 onclick="popupOpen('<span class="guidePoint">#팝업아이디명</span>');" / 팝업 내부의 닫기 버튼 id값 맞춰주기 onclick="popupClose('<span class="guidePoint">#팝업아이디명</span>');"</li>
+            </ul>
+            <div class="btnGroup">
+                <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeXs');">xs size</button>
+                <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeSm');">sm size</button>
+                <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeMd');">md size</button>
+                <button type="button" class="btnWrite" onclick="popupOpen('#popupSizeLg');">lg size</button>
+            </div>
+
+            <pre class="brush:html" title="HTML">
+                &lt;!-- 클릭 버튼 예시 --&gt;
+                &lt;!-- button 태그로 작업시 예시 --&gt;
+                &lt;button type="button" onclick="popupOpen('#팝업아이디명');"&gt;팝업버튼&lt;/button&gt;
+                &lt;!-- a 태그로 작업시 예시 --&gt;
+                &lt;a href="#;" onclick="popupOpen('#팝업아이디명');"&gt;팝업버튼&lt;/a&gt;
+
+                &lt;!-- .popupWrap 원하는 사이즈 클래스 삽입 : [예시] .xs --&gt;
+                &lt;!-- 버튼과 연결된 id값 넣어주기 --&gt;
+                &lt;div class="popupWrap xs" id="팝업아이디명"&gt;
+                    &lt;div class="popupCenter"&gt;
+                        &lt;div class="popupInner"&gt;
+                            &lt;h5 class="popupTitle"&gt;팝업 타이틀&lt;/h5&gt;
+                            &lt;div class="popupText"&gt;
+                                이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                            &lt;/div&gt;
+                            &lt;!-- 닫을 팝업의 id값 넣어주기 : onclick="popupClose('#팝업아이디명');"  --&gt;
+                            &lt;button type="button" class="btnPopupClose" onclick="popupClose('#팝업아이디명');"&gt;닫기&lt;/button&gt;
+                        &lt;/div&gt;&lt;!-- popupInner end --&gt;
+                    &lt;/div&gt;&lt;!-- popupCenter end --&gt;
+                &lt;/div&gt;&lt;!-- popupWrap end --&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                /* modal popup START */
+                function popupOpen(openTarget) {
+                    $(openTarget).addClass("show");
+                }
+                function popupClose(closeTarget) {
+                    $(closeTarget).removeClass("show");
+                }
+                /* modal popup END */
+            </pre>
+            <pre class="brush:css" title="assets/css/sh_style.css">
+                /* modal popup START */
+                .popupWrap{position: fixed;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0, 0, 0, 0.8);-webkit-overflow-scrolling: touch;z-index: 99999;opacity: 0;overflow-y: auto;visibility: hidden;-webkit-transition: all 0.5s ease;transition: all 0.5s ease;-webkit-transition-property: opacity, visibility;transition-property: opacity, visibility;-webkit-transition-delay: 100ms;transition-delay: 100ms;-ms-overflow-style: none;scrollbar-width: none;}
+                .popupWrap::-webkit-scrollbar{display: none;}
+                .popupWrap .popupCenter{position: absolute;width: 100%;height: auto;min-height: 100%;display: flex;justify-content: center;align-items: center;padding: 20px 0;box-sizing: border-box;}
+                .popupInner{position: relative;max-width: 100%;width: 700px;padding: 13px 20px 20px;background: #fff;border-radius: 5px;box-sizing: border-box;}
+                .popupWrap.xs .popupInner{width: 320px;}
+                .popupWrap.sm .popupInner{width: 500px;}
+                .popupWrap.md .popupInner{width: 700px;}
+                .popupWrap.lg .popupInner{width: 1000px;}
+                .btnPopupClose{display: block;width: 100%;height: 48px;margin-top: 10px;background: #FFF;border: 1px solid #E6E6E6;border-radius: 5px;font-size: 13px;color: #222;font-weight: 700;text-align: center;}
+                .popupWrap.show{opacity: 1;visibility: visible;-webkit-transition-delay: 0s;transition-delay: 0s;}
+                .popupTitle{display: block;padding-bottom: 15px;border-bottom: 1px solid #DADADA;box-sizing: border-box;font-size: 14px;color: #222;font-weight: 700;line-height: 26px;letter-spacing: -0.6px;text-align: left;}
+                .popupText{display: block;padding: 15px 20px;background: #F6F6F6;border: 1px solid #E7E7E7;border-radius: 5px;box-sizing: border-box;font-size: 13px;color: #666;font-weight: 400;line-height: 22px;letter-spacing: -0.6px;text-align: left;}
+                .popupTitle + .popupText{margin-top: 10px;}
+                /* modal popup END */
+                
+                @media screen and (max-width: 767px){
+                    /* modal popup START */
+                    .popupWrap .popupCenter{padding: 20px 10px;}
+                    /* modal popup END */
+                }
+            </pre>
+        </section>
+        <section class="guideSection">
+            <h3 class="guideTitle" id="guideCalendar">
+                캘린더 <small>.calenderTable</small>
+            </h3>
+            <ul class="guideText">
+                <li>날짜 클릭시 .on 추가</li>
+            </ul>
+            <div class="calenderTable">
+                <div class="calenderDateSm">
+                    <button type="button" class="prev"><img src="assets/images/icon_arrow_prev.svg" alt="이전달"></button>
+                    <strong>2023년 5월</strong>
+                    <button type="button" class="next"><img src="assets/images/icon_arrow_prev.svg" alt="다음달"></button>
+                </div>
+                <div class="calenderTableSm">
+                    <table>
+                        <caption>calender(일, 월, 화, 수, 목, 금, 토)</caption>
+                        <colgroup>
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                            <col style="width: 14.28%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">일</th>
+                                <th scope="col">월</th>
+                                <th scope="col">화</th>
+                                <th scope="col">수</th>
+                                <th scope="col">목</th>
+                                <th scope="col">금</th>
+                                <th scope="col">토</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="sun"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><a href="#;" title="1일">1</a></td>
+                                <td><a href="#;" title="2일">2</a></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><a href="#;" title="3일">3</a></td>
+                                <td><a href="#;" title="4일">4</a></td>
+                                <td><a href="#;" title="5일">5</a></td>
+                                <td><a href="#;" title="6일">6</a></td>
+                                <td><a href="#;" title="7일">7</a></td>
+                                <td class="today"><a href="#;" title="8일">8</a></td>
+                                <td><a href="#;" title="9일">9</a></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><a href="#;" title="10일">10</a></td>
+                                <td><a href="#;" title="11일">11</a></td>
+                                <td><a href="#;" title="12일">12</a></td>
+                                <td><a href="#;" title="13일">13</a></td>
+                                <td><a href="#;" title="14일">14</a></td>
+                                <td><a href="#;" title="15일">15</a></td>
+                                <td><a href="#;" title="16일">16</a></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><a href="#;" title="17일">17</a></td>
+                                <td><a href="#;" title="18일">18</a></td>
+                                <td><a href="#;" title="19일">19</a></td>
+                                <td><a href="#;" title="20일">20</a></td>
+                                <td><a href="#;" title="21일">21</a></td>
+                                <td><a href="#;" title="22일">22</a></td>
+                                <td><a href="#;" title="23일">23</a></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><a href="#;" title="24일">24</a></td>
+                                <td><a href="#;" title="25일">25</a></td>
+                                <td><a href="#;" title="26일">26</a></td>
+                                <td><a href="#;" title="27일">27</a></td>
+                                <td><a href="#;" title="28일">28</a></td>
+                                <td><a href="#;" title="29일">29</a></td>
+                                <td><a href="#;" title="30일">30</a></td>
+                            </tr>
+                            <tr>
+                                <td class="sun"><a href="#;" title="31일">31</a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <pre class="brush:html" title="HTML">
+                &lt;div class="calenderTable"&gt;
+                    &lt;div class="calenderDateSm"&gt;
+                        &lt;button type="button" class="prev"&gt;&lt;img src="assets/images/icon_arrow_prev.svg" alt="이전달"&gt;&lt;/button&gt;
+                        &lt;strong&gt;2023년 5월&lt;/strong&gt;
+                        &lt;button type="button" class="next"&gt;&lt;img src="assets/images/icon_arrow_prev.svg" alt="다음달"&gt;&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class="calenderTableSm"&gt;
+                        &lt;table&gt;
+                            &lt;caption&gt;calender(일, 월, 화, 수, 목, 금, 토)&lt;/caption&gt;
+                            &lt;colgroup&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                                &lt;col style="width: 14.28%"&gt;
+                            &lt;/colgroup&gt;
+                            &lt;thead&gt;
+                                &lt;tr&gt;
+                                    &lt;th scope="col"&gt;일&lt;/th&gt;
+                                    &lt;th scope="col"&gt;월&lt;/th&gt;
+                                    &lt;th scope="col"&gt;화&lt;/th&gt;
+                                    &lt;th scope="col"&gt;수&lt;/th&gt;
+                                    &lt;th scope="col"&gt;목&lt;/th&gt;
+                                    &lt;th scope="col"&gt;금&lt;/th&gt;
+                                    &lt;th scope="col"&gt;토&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="1일"&gt;1&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="2일"&gt;2&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;a href="#;" title="3일"&gt;3&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="4일"&gt;4&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="5일"&gt;5&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="6일"&gt;6&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="7일"&gt;7&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td class="today"&gt;&lt;a href="#;" title="8일"&gt;8&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="9일"&gt;9&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;a href="#;" title="10일"&gt;10&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="11일"&gt;11&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="12일"&gt;12&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="13일"&gt;13&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="14일"&gt;14&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="15일"&gt;15&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="16일"&gt;16&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;a href="#;" title="17일"&gt;17&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="18일"&gt;18&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="19일"&gt;19&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="20일"&gt;20&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="21일"&gt;21&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="22일"&gt;22&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="23일"&gt;23&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;a href="#;" title="24일"&gt;24&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="25일"&gt;25&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="26일"&gt;26&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="27일"&gt;27&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="28일"&gt;28&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="29일"&gt;29&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;a href="#;" title="30일"&gt;30&lt;/a&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                    &lt;td class="sun"&gt;&lt;a href="#;" title="31일"&gt;31&lt;/a&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                    &lt;td&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                        &lt;/table&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </pre>
+            <pre class="brush:js" title="assets/js/ui.js">
+                /* calenderTable START */
+                $(document).on("click", ".calenderTableSm a", function(){
+                    $(this).closest(".calenderTableSm").find("td").removeClass("on");
+                    $(this).parent("td").toggleClass("on").siblings("td").removeClass("on");
+                });
+                /* calenderTable END */
+            </pre>
+            <pre class="brush:css" title="assets/css/sh_style.css">
+                /* calenderTable START */
+                .calenderDateSm {display: flex;align-items: center;justify-content: space-between;flex-direction: row;flex-wrap: wrap;height: 70px;}
+                .calenderDateSm button {width: 16px;height: 16px;}
+                .calenderDateSm button img {display: block;}
+                .calenderDateSm button.next {-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-ms-transform: rotate(180deg);-o-transform: rotate(180deg);transform: rotate(180deg);}
+                .calenderDateSm strong {font-size: 15px;color: #333;font-weight: 500;line-height: 22px;}
+                .calenderTableSm table {width: 100%;border-bottom: 1px solid #EAEAEA;box-sizing: border-box;}
+                .calenderTableSm table thead th {height: 44px;border-top: 1px solid #EAEAEA;border-bottom: 1px solid #EAEAEA;box-sizing: border-box;font-size: 13px;color: #333;font-weight: 700;line-height: 22px;}
+                .calenderTableSm table tbody td {position: relative;height: 40px;font-size: 13px;color: #666;font-weight: 400;line-height: 18px;text-align: center;vertical-align: middle;}
+                .calenderTableSm table tbody td a {display: flex;align-items: center;justify-content: center;width: 30px;height: 30px;line-height: 30px;margin: 0 auto;border-radius: 100%;font-size: 13px;color: #666;font-weight: 400;line-height: 18px;text-align: center;vertical-align: middle;}
+                .calenderTableSm table .sun a {color: #F43131;}
+                .calenderTableSm table .today a {background: #F1F1F1;border: 1px solid #DFDFDF;border-radius: 100%;box-sizing: border-box;}
+                .calenderTableSm table .on a {background: var(--main-color);border-color: var(--main-color);color: #fff;font-weight: 600;}
+                /* calenderTable END */
+            </pre>
+        </section>
+    </div><!-- inner end -->
+
+    <!-- 팝업 영역 START -->
+    <!-- [전달사항] .popupWrap 가로 사이즈 조정은 .xs/.sm/.md/.lg - 320px/500px/700px/1000px 구분 -->
+    <div class="popupWrap xs" id="popupSizeXs">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeXs');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap sm" id="popupSizeSm">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeSm');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap md" id="popupSizeMd">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeMd');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+
+    <div class="popupWrap lg" id="popupSizeLg">
+        <div class="popupCenter">
+            <div class="popupInner">
+                <h5 class="popupTitle">팝업 타이틀</h5>
+                <div class="popupText">
+                    이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.이곳은 팝업 관련 내용이 들어갑니다. 예를 들어 개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.개인정보취급과 같은 내용으로 생각 해주세요.
+                </div>
+                <button type="button" class="btnPopupClose" onclick="popupClose('#popupSizeLg');">닫기</button>
+            </div><!-- popupInner end -->
+        </div><!-- popupCenter end -->
+    </div><!-- popupWrap end -->
+    <!-- 팝업 영역 END -->
+</body>
+</html>
